@@ -16,37 +16,24 @@
 </head>
 <body class="font-sans">
 
-<!-- Menu responsive avec burger -->
-<header class="bg-slate-900 text-white">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-    <a href="index.html" class="text-xl font-bold text-white">Neuvième Légion</a>
+<!-- Chargement du menu -->
+<div id="menu-container"></div>
+<script>
+  fetch('menu.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('menu-container').innerHTML = data;
 
-    <!-- Bouton burger -->
-    <button id="menu-toggle" class="md:hidden focus:outline-none">
-      <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-        <path d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-
-    <!-- Liens desktop -->
-    <nav class="hidden md:flex space-x-6">
-      <a href="index.html" class="hover:text-blue-400">Accueil</a>
-      <a href="operations.html" class="hover:text-blue-400">Opérations</a>
-      <a href="mineurs-2026.html" class="hover:text-blue-400">Mineurs 2026</a>
-      <a href="mailto:neuviemelegionforbach@gmail.com" class="hover:text-blue-400">Contact</a>
-      <a href="https://www.helloasso.com" target="_blank" class="hover:text-blue-400">HelloAsso</a>
-    </nav>
-  </div>
-
-  <!-- Liens mobile -->
-  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
-    <a href="index.html" class="block hover:text-blue-400">Accueil</a>
-    <a href="operations.html" class="block hover:text-blue-400">Opérations</a>
-    <a href="mineurs-2026.html" class="block hover:text-blue-400">Mineurs 2026</a>
-    <a href="mailto:neuviemelegionforbach@gmail.com" class="block hover:text-blue-400">Contact</a>
-    <a href="https://www.helloasso.com" target="_blank" class="block hover:text-blue-400">HelloAsso</a>
-  </div>
-</header>
+      // Active le bouton burger après chargement
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      }
+    });
+</script>
 
 <!-- Script pour menu mobile -->
 <script>

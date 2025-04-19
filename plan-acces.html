@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plan d'accès & Règlement – Neuvième Légion Forbach</title>
+  <meta name="description" content="Comment accéder au terrain de la Neuvième Légion Forbach et connaître les règles de sécurité.">
+  <link href="https://fonts.cdnfonts.com/css/road-rage" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    h1, h2 {
+      font-family: 'Road Rage', sans-serif;
+    }
+    body {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Chargement du menu -->
+<div id="menu-container"></div>
+<script>
+  fetch('menu.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('menu-container').innerHTML = data;
+
+      // Active le bouton burger après chargement
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      }
+    });
+</script>
+
+  <main class="px-6 py-12 max-w-4xl mx-auto">
+    <h1 class="text-4xl text-center mb-8">🧭 Plan d'accès & Règlement</h1>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Plan d’accès au terrain</h2>
+      <p class="text-slate-300 mb-4">Le point de rendez-vous et l’entrée du terrain seront communiqués aux joueurs inscrits. En attendant, cette section est en cours de mise à jour.</p>
+      <div class="bg-slate-800 p-6 rounded-lg text-center text-slate-400 italic">📍 Carte à venir prochainement</div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-4">Règlement du terrain</h2>
+      <p class="text-slate-300 mb-4">Le règlement complet du terrain est en cours de finalisation. Quelques points essentiels :</p>
+      <ul class="list-disc list-inside text-slate-300 space-y-2">
+        <li>Port de lunettes de protection obligatoire à tout moment sur le terrain.</li>
+        <li>Les puissances des répliques doivent respecter la législation en vigueur.</li>
+        <li>Respect du fair-play, des organisateurs et des autres joueurs.</li>
+        <li>Interdiction de tirer vers les zones neutres, la route ou le parking.</li>
+        <li>Tout joueur doit emporter ses déchets en fin de partie.</li>
+        <li>Les mineurs ne sont pas autorisés (hors événements dédiés).</li>
+      </ul>
+      <p class="text-slate-400 italic mt-4">Le règlement complet sera disponible ici très prochainement.</p>
+    </section>
+  </main>
+
+  <footer class="py-6 text-center text-sm text-slate-500">
+    &copy; 2025 Neuvième Légion Forbach — Tous droits réservés. <br>
+    <a href="mentions-legales.html" class="text-blue-400">Mentions légales</a> | 
+    <a href="politique-confidentialite.html" class="text-blue-400">Politique de confidentialité</a>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
