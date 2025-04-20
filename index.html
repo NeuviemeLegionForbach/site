@@ -1,101 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Neuvième Légion Forbach, association d'airsoft en Moselle. Rejoignez-nous pour des scénarios immersifs, du fun, et de la stratégie sur le terrain." />
-  <meta name="keywords" content="airsoft, Forbach, association, jeux de rôle, immersion, airsoft Moselle, stratégie, légion, paintball, équipement airsoft" />
-  <meta name="robots" content="index, follow" />
-  <title>Neuvième Légion Forbach</title>
-  <!-- Police Road Rage -->
-  <link href="https://fonts.cdnfonts.com/css/road-rage" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style type="text/css">
-    body {
-      background-color: #0f172a;
-      color: #f1f5f9;
-    }
-    h1 {
-      font-family: 'Road Rage', sans-serif;
-    }
-    .hero-background {
-      background-image: url('assets/A_high-resolution_photograph_captures_a_dense_fore.png');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      position: relative;
-    }
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site en travaux - Neuvième Légion Forbach</title>
+  <link href="https://fonts.googleapis.com/css2?family=Road+Rage&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-sans">
-  <!-- Chargement du menu -->
-  <div id="menu-container">&nbsp;</div>
-  <script>
-    fetch('menu.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('menu-container').innerHTML = data;
+<body>
 
-        // Active le bouton burger après chargement
-        const toggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('mobile-menu');
-        if (toggle && menu) {
-          toggle.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            const expanded = menu.classList.contains('hidden') ? 'false' : 'true';
-            toggle.setAttribute('aria-expanded', expanded);
-          });
-        }
-      });
-  </script>
-
-  <!-- Header avec l'image de fond -->
+  <!-- Hero Section -->
   <section class="hero-background">
     <div class="overlay"></div>
-    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-      <img alt="Logo" class="mb-6 rounded-full shadow-lg" src="https://via.placeholder.com/120x120?text=Logo" />
-      <h1 class="text-5xl md:text-6xl text-white mb-4 uppercase">Neuvième Légion Forbach</h1>
-      <p class="text-lg md:text-2xl text-slate-300 max-w-xl">Association d'airsoft en Moselle – Immersion, stratégie et fun garanti !</p>
-      <div class="mt-6 flex flex-wrap justify-center gap-4">
-        <a class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-full text-white font-semibold" href="mailto:neuviemelegionforbach@gmail.com">📧 Nous écrire</a>
-        <a class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-full text-white font-semibold" href="https://www.helloasso.com" target="_blank">🤝 HelloAsso</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Présentation -->
-  <section class="py-16 px-6 max-w-4xl mx-auto">
-    <h2 class="text-3xl font-bold mb-4 text-center">Qui sommes-nous ?</h2>
-    <p class="text-slate-300 text-lg leading-relaxed text-center">La Neuvième Légion Forbach est une association d'airsoft basée en Moselle. Nous organisons des parties immersives avec des scénarios dynamiques, en mettant l'accent sur le fairplay, et la stratégie. Rejoignez-nous pour vivre l'aventure airsoft sur le terrain !</p>
-  </section>
-
-  <!-- Invitation -->
-  <section class="py-16 px-6 text-center text-slate-300">
-    <h2 class="text-3xl font-bold mb-6">Rejoignez-nous !</h2>
-    <p class="text-lg">Nous organisons des événements d'airsoft. Vivez l'expérience airsoft avec nous ! Découvrez nos activités et participez aux prochaines parties !</p>
-  </section>
-
-  <!-- Réseaux sociaux -->
-  <section class="bg-slate-800 py-10">
-    <h3 class="text-2xl font-bold mb-6 text-center">Retrouvez-nous sur les réseaux</h3>
-    <div class="flex justify-center gap-6">
-      <a class="hover:scale-105 transition text-pink-400" href="https://www.instagram.com" target="_blank">📸 Instagram</a>
-      <a class="hover:scale-105 transition text-blue-400" href="https://www.facebook.com" target="_blank">📘 Facebook</a>
+    <div class="hero-text">
+      <h1>Travaux en Cours</h1>
+      <p>Notre site est actuellement en travaux. Nous revenons très bientôt avec une expérience améliorée pour les membres de la Neuvième Légion Forbach !</p>
+      <a href="mailto:neuviemelegionforbach@gmail.com" class="contact-btn">Nous contacter</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-6 text-center text-sm text-slate-500">
-    &copy; 2025 Neuvième Légion Forbach — Tous droits réservés.<br />
-    <a class="text-blue-400" href="/mentions-legales.html">Mentions légales</a> | <a class="text-blue-400" href="/politique-confidentialite.html">Politique de confidentialité</a>
+  <footer>
+    <p>&copy; 2025 Neuvième Légion Forbach. Tous droits réservés.</p>
   </footer>
+
 </body>
 </html>

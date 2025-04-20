@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Retrouvez les prochaines opérations d'airsoft de la Neuvième Légion Forbach." />
   <meta name="keywords" content="airsoft, événements, opérations, Forbach, Moselle, scénarios" />
   <title>Opérations à venir — Neuvième Légion Forbach</title>
-  <link href="https://fonts.cdnfonts.com/css/road-rage" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/road-rage" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
@@ -19,6 +19,7 @@
   </style>
 </head>
 <body class="font-sans">
+
 <!-- Chargement du menu -->
 <div id="menu-container"></div>
 <script>
@@ -27,7 +28,7 @@
     .then(data => {
       document.getElementById('menu-container').innerHTML = data;
 
-      // Active le bouton burger après chargement
+      // Activation du bouton burger pour le menu mobile
       const toggle = document.getElementById('menu-toggle');
       const menu = document.getElementById('mobile-menu');
       if (toggle && menu) {
@@ -38,55 +39,32 @@
     });
 </script>
 
-<!-- Script pour menu mobile -->
-<script>
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
+<header class="bg-slate-900 text-center py-8">
+  <h1 class="text-4xl text-white">Neuvième Légion Forbach</h1>
+  <p class="text-slate-400 mt-2">Les futures opérations</p>
+</header>
 
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-</script>
-  <header class="bg-slate-900 text-center py-8">
-    <h1 class="text-4xl text-white">Neuvième Légion Forbach</h1>
-    <p class="text-slate-400 mt-2">Les futures opérations</p>
-  </header>
+<main class="py-12 px-6 max-w-4xl mx-auto">
+  <h2 class="text-3xl font-bold mb-6 text-center">Événements à venir</h2>
 
-  <main class="py-12 px-6 max-w-4xl mx-auto">
-    <h2 class="text-3xl font-bold mb-6 text-center">Événements à venir</h2>
-
-    <div class="space-y-8 text-slate-300">
-<!--
-      <div class="bg-slate-800 p-6 rounded-xl shadow-md">
-        <h3 class="text-2xl font-bold mb-2">Opération “Zone Rouge”</h3>
-        <p><strong>Date :</strong> Dimanche 28 avril 2025</p>
-        <p><strong>Lieu :</strong> Terrain principal, Forbach</p>
-        <p><strong>Description :</strong> Scénario évolutif en plusieurs manches. Gestion de munitions, zones de ravitaillement, et objectif stratégique. Arrivée dès 8h30, café offert.</p>
-      </div>
-
-      <div class="bg-slate-800 p-6 rounded-xl shadow-md">
-        <h3 class="text-2xl font-bold mb-2">Partie dominicale</h3>
-        <p><strong>Date :</strong> Dimanche 11 mai 2025</p>
-        <p><strong>Lieu :</strong> Terrain secondaire, forêt de Stiring</p>
-        <p><strong>Description :</strong> Parties en mode “Économie de munitions” et scénario “VIP à extraire”. Pensez à réserver vos billes !</p>
-      </div>
--->
-      <div class="bg-slate-800 p-6 rounded-xl shadow-md">
-        <h3 class="text-2xl font-bold mb-2">Opération “Last Stand”</h3>
-        <p><strong>Date :</strong> À confirmer (juin 2025)</p>
-        <p><strong>Description :</strong> Événement spécial avec inscriptions limitées, présence de plusieurs teams invitées. Plus d'infos bientôt.</p>
-      </div>
-
+  <div class="space-y-8 text-slate-300">
+    <div class="bg-slate-800 p-6 rounded-xl shadow-md">
+      <h3 class="text-2xl font-bold mb-2">Opération “Last Stand”</h3>
+      <p><strong>Date :</strong> À confirmer (juin 2025)</p>
+      <p><strong>Description :</strong> Événement spécial avec inscriptions limitées, présence de plusieurs teams invitées. Plus d'infos bientôt.</p>
     </div>
+  </div>
 
-    <div class="text-center mt-12">
-      <a href="index.html" class="text-blue-400 hover:text-blue-500">← Retour à l'accueil</a>
-    </div>
-  </main>
+  <div class="text-center mt-12">
+    <a class="text-blue-400 hover:text-blue-500" href="index.html">&larr; Retour à l'accueil</a>
+  </div>
+</main>
 
-  <footer class="py-6 text-center text-sm text-slate-500">
-    &copy; 2025 Neuvième Légion Forbach — <a href="mentions-legales.html" class="text-blue-400">Mentions légales</a> | <a href="politique-confidentialite.html" class="text-blue-400">Politique de confidentialité</a>
-  </footer>
+<footer class="py-6 text-center text-sm text-slate-500">
+  &copy; 2025 Neuvième Légion Forbach — 
+  <a class="text-blue-400" href="mentions-legales.html">Mentions légales</a> | 
+  <a class="text-blue-400" href="politique-confidentialite.html">Politique de confidentialité</a>
+</footer>
 
 </body>
 </html>

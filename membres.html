@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Retrouvez les prochaines opérations d'airsoft de la Neuvième Légion Forbach." /><meta name="keywords" content="airsoft, événements, opérations, Forbach, Moselle, scénarios" />
+	<title>Op&eacute;rations &agrave; venir &mdash; Neuvi&egrave;me L&eacute;gion Forbach</title>
+	<link href="https://fonts.cdnfonts.com/css/road-rage" rel="stylesheet" /><script src="https://cdn.tailwindcss.com"></script>
+	<style type="text/css">body {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+    h1, h2 {
+      font-family: 'Road Rage', sans-serif;
+    }
+	</style>
+</head>
+<body class="font-sans"><!-- Chargement du menu -->
+<div id="menu-container">&nbsp;</div>
+<script>
+  fetch('menu.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('menu-container').innerHTML = data;
+
+      // Activation du bouton burger pour le menu mobile
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      }
+    });
+</script>
+
+<header class="bg-slate-900 text-center py-8">
+<h1 class="text-4xl text-white">Neuvi&egrave;me L&eacute;gion Forbach</h1>
+</header>
+
+<section class="py-16 px-6 bg-gray-800 text-white">
+<h2 class="text-3xl font-bold mb-8 text-center">Nos Membres</h2>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Fiche membre 1 -->
+<div class="bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"><img alt="Membre 1" class="rounded-full w-32 h-32 mx-auto mb-4" src="https://via.placeholder.com/120x120?text=Photo" />
+<h3 class="text-xl font-semibold text-center mb-2">Cl&eacute;ment</h3>
+
+<p class="text-center text-slate-300">Pr&eacute;sident</p>
+
+<p class="mt-4 text-center">Passionn&eacute; d&#39;airsoft depuis des ann&eacute;es, Cl&eacute;ment est le leader de la Neuvi&egrave;me L&eacute;gion Forbach, organisant des &eacute;v&eacute;nements et coordonnant l&#39;&eacute;quipe avec enthousiasme et strat&eacute;gie.</p>
+
+<div class="mt-4 flex justify-center gap-4"><a class="text-blue-400" href="mailto:clément@neuviemelegionforbach.fr">📧 Contact</a></div>
+</div>
+<!-- Fiche membre 2 -->
+
+<div class="bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"><img alt="Membre 2" class="rounded-full w-32 h-32 mx-auto mb-4" src="https://via.placeholder.com/120x120?text=Photo" />
+<h3 class="text-xl font-semibold text-center mb-2">Damien</h3>
+
+<p class="text-center text-slate-300">Vice-Pr&eacute;sident</p>
+
+<p class="mt-4 text-center">Damien est l&#39;adjoint du pr&eacute;sident, apportant ses comp&eacute;tences tactiques et son expertise dans la gestion des op&eacute;rations sur le terrain.</p>
+
+<div class="mt-4 flex justify-center gap-4"><a class="text-blue-400" href="mailto:damien@neuviemelegionforbach.fr">📧 Contact</a></div>
+</div>
+<!-- Fiche membre 3 -->
+
+<div class="bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"><img alt="Membre 3" class="rounded-full w-32 h-32 mx-auto mb-4" src="https://via.placeholder.com/120x120?text=Photo" />
+<h3 class="text-xl font-semibold text-center mb-2">Magali</h3>
+
+<p class="text-center text-slate-300">Secr&eacute;taire</p>
+
+<p class="mt-4 text-center">Magali s&#39;occupe de toute la gestion administrative, des inscriptions aux &eacute;v&eacute;nements, et assure que la communication interne de l&#39;association soit fluide et efficace.</p>
+
+<div class="mt-4 flex justify-center gap-4"><a class="text-blue-400" href="mailto:magali@neuviemelegionforbach.fr">📧 Contact</a></div>
+</div>
+<!-- Fiche membre 4 -->
+
+<div class="bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"><img alt="Membre 4" class="rounded-full w-32 h-32 mx-auto mb-4" src="https://via.placeholder.com/120x120?text=Photo" />
+<h3 class="text-xl font-semibold text-center mb-2">Floriane</h3>
+
+<p class="text-center text-slate-300">Secr&eacute;taire Adjointe</p>
+
+<p class="mt-4 text-center">Floriane est la personne de confiance pour le suivi des documents et la gestion des t&acirc;ches logistiques lors des &eacute;v&eacute;nements de l&#39;association.</p>
+
+<div class="mt-4 flex justify-center gap-4"><a class="text-blue-400" href="mailto:floriane@neuviemelegionforbach.fr">📧 Contact</a></div>
+</div>
+<!-- Fiche membre 5 -->
+
+<div class="bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"><img alt="Membre 5" class="rounded-full w-32 h-32 mx-auto mb-4" src="https://via.placeholder.com/120x120?text=Photo" />
+<h3 class="text-xl font-semibold text-center mb-2">J&eacute;r&ocirc;me</h3>
+
+<p class="text-center text-slate-300">Tr&eacute;sorier</p>
+
+<p class="mt-4 text-center">J&eacute;r&ocirc;me g&egrave;re les finances de l&#39;association, en veillant &agrave; ce que les fonds soient utilis&eacute;s correctement pour organiser les meilleurs &eacute;v&eacute;nements d&#39;airsoft.</p>
+
+<div class="mt-4 flex justify-center gap-4"><a class="text-blue-400" href="mailto:jerome@neuviemelegionforbach.fr">📧 Contact</a></div>
+</div>
+<!-- Fiche membre 6 -->
+
+<div class="bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"><img alt="Membre 6" class="rounded-full w-32 h-32 mx-auto mb-4" src="https://via.placeholder.com/120x120?text=Photo" />
+<h3 class="text-xl font-semibold text-center mb-2">Julien</h3>
+
+<p class="text-center text-slate-300">Tr&eacute;sorier Adjoint</p>
+
+<p class="mt-4 text-center">Julien aide J&eacute;r&ocirc;me dans la gestion des finances et est &eacute;galement responsable de la collecte des cotisations et des contributions pour les &eacute;v&eacute;nements.</p>
+
+<div class="mt-4 flex justify-center gap-4"><a class="text-blue-400" href="mailto:julien@neuviemelegionforbach.fr">📧 Contact</a></div>
+</div>
+</div>
+</section>
+
+<footer class="py-6 text-center text-sm text-slate-500">&copy; 2025 Neuvi&egrave;me L&eacute;gion Forbach &mdash; <a class="text-blue-400" href="mentions-legales.html">Mentions l&eacute;gales</a> | <a class="text-blue-400" href="politique-confidentialite.html">Politique de confidentialit&eacute;</a></footer>
+</body>
+</html>

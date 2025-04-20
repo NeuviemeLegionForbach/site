@@ -1,0 +1,355 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #0f172a;
+  color: #f1f5f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles pour le header/menu */
+header {
+  background-color: #1e293b; /* Couleur de fond sombre pour le header */
+  padding: 1rem;
+  position: relative;
+}
+
+header a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #38bdf8; /* Couleur de survol bleu clair */
+}
+
+/* Logo */
+header .text-xl {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Menu burger */
+#menu-toggle {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Menu mobile */
+#mobile-menu {
+  display: none;
+  background-color: #1e293b; /* Fond du menu mobile */
+  padding: 1rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+#mobile-menu a {
+  display: block;
+  color: #ffffff;
+  padding: 0.75rem 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+#mobile-menu a:hover {
+  background-color: #38bdf8;
+}
+
+/* Menu Desktop */
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+/* Cacher le menu mobile par défaut */
+.md\\:hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Menu mobile visible sur petit écran */
+  .md\\:hidden {
+    display: block;
+  }
+  
+  #menu-toggle {
+    display: block;
+  }
+  
+  nav {
+    display: none; /* Cacher le menu sur mobile */
+  }
+
+  #mobile-menu {
+    display: none; /* Initialement caché */
+  }
+}
+
+/* Styles supplémentaires pour l'overlay du hero */
+.hero-background {
+  background-image: url('assets/A_high-resolution_photograph_captures_a_dense_fore.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+/* Application de la police Road Rage au titre */
+.hero-background h1 {
+  font-family: 'Road Rage', sans-serif;
+  font-size: 3.75rem; /* Taille du texte */
+  color: white;
+  text-transform: uppercase;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Styles de texte du Hero */
+.hero-background p {
+  font-size: 1.25rem;
+  color: #e2e8f0;
+  margin-top: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Boutons */
+button,
+a {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  text-align: center;
+  background-color: #ef4444; /* Rouge de base */
+  color: white;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+button:hover,
+a:hover {
+  background-color: #dc2626; /* Rouge plus sombre */
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.md\\:text-6xl {
+  font-size: 3.75rem;
+}
+
+/* Footer */
+footer {
+  background-color: #1e293b;
+  color: #a0aec0;
+  padding: 2rem 0;
+}
+
+footer a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Section générale */
+section {
+  padding: 3rem 0;
+}
+
+/* Responsive Hero */
+@media (max-width: 768px) {
+  .hero-background h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-background p {
+    font-size: 1rem;
+  }
+}
+/* ajout temporaire */
+.hero-text {
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.hero-text h1 {
+  font-family: 'Road Rage', sans-serif;
+  font-size: 3.5rem;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  color: #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  text-align: center;
+  background-color: #ef4444; /* Rouge airsoft */
+  color: white;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.contact-btn:hover {
+  background-color: #dc2626;
+}
+/* Menu Desktop */
+nav a {
+  display: inline-block;
+  padding: 0.75rem 1rem; /* Plus de padding pour un bouton plus large */
+  text-align: center;
+  background-color: transparent; /* Pas de fond rouge */
+  color: white;
+  font-weight: normal;
+  text-transform: none;
+  border-radius: 4px; /* Arrondi plus léger */
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  border: 1px solid transparent; /* Bordure transparente par défaut */
+}
+
+nav a:hover {
+  background-color: #38bdf8; /* Survol bleu clair */
+  color: #0f172a; /* Changer la couleur du texte au survol */
+  border-color: #38bdf8; /* Ajouter une bordure bleu clair au survol */
+}
+
+/* Menu mobile */
+#mobile-menu a {
+  display: block;
+  padding: 1rem;
+  text-align: left;
+  color: white;
+  font-weight: normal;
+  text-decoration: none;
+  border-radius: 4px; /* Arrondi plus léger pour les éléments du menu mobile */
+  transition: background-color 0.3s ease;
+}
+
+#mobile-menu a:hover {
+  background-color: #38bdf8;
+  color: #0f172a;
+  border-color: #38bdf8;
+}
+/* Logo "Neuvième Légion" */
+header a.text-xl {
+  font-size: 1.5rem; /* Taille de police plus grande pour le logo */
+  font-weight: bold;
+  color: #ffffff; /* Couleur du texte */
+  text-transform: none; /* Pas de majuscules pour le logo */
+  text-decoration: none; /* Pas de soulignement */
+  padding: 0.75rem 1rem; /* Ajout de padding autour du texte */
+  border-radius: 8px; /* Ajout d'un léger arrondi */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Effet de survol pour le logo */
+header a.text-xl:hover {
+  background-color: #38bdf8; /* Couleur de fond au survol (bleu clair) */
+  color: #0f172a; /* Couleur du texte au survol (texte sombre) */
+}
+
+/* Liens du menu (desktop et mobile) */
+header nav a,
+#mobile-menu a {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  color: #ffffff; /* Couleur du texte (blanc) */
+  text-decoration: none; /* Pas de soulignement */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Effet de survol des liens */
+header nav a:hover,
+#mobile-menu a:hover {
+  background-color: #38bdf8; /* Couleur de fond au survol (bleu clair) */
+  color: #0f172a; /* Couleur du texte au survol (texte sombre) */
+}
+
+/* Boutons généraux */
+button,
+a {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  text-align: center;
+  background-color: #1e293b; /* Fond sombre, pas de rouge */
+  color: white;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+button:hover,
+a:hover {
+  background-color: #38bdf8; /* Fond bleu clair au survol */

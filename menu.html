@@ -1,13 +1,14 @@
 <!-- menu.html -->
 <header class="bg-slate-900 text-white relative z-50">
   <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <!-- Logo et lien vers la page d'accueil -->
     <a href="index.html" class="text-xl font-bold text-white">Neuvième Légion</a>
 
     <!-- Burger menu visible uniquement sur mobile -->
-    <button id="menu-toggle" class="md:hidden text-3xl text-white focus:outline-none" aria-label="Ouvrir le menu">
+    <button id="menu-toggle" class="md:hidden text-3xl text-white focus:outline-none" aria-label="Ouvrir le menu" aria-expanded="false">
       <!-- SVG pour icône burger, avec texte fallback "☰" -->
       <span class="sr-only">Ouvrir le menu</span>
-      <svg class="w-8 h-8 fill-current inline-block" viewBox="0 0 24 24">
+      <svg class="w-8 h-8 fill-current inline-block" viewBox="0 0 24 24" id="burger-icon">
         <path d="M4 6h16M4 12h16M4 18h16" />
       </svg>
       <span class="inline-block md:hidden">☰</span> <!-- Texte alternatif visible si le SVG échoue -->
@@ -19,6 +20,9 @@
       <a href="operations.html" class="hover:text-blue-400">Opérations</a>
       <a href="mineurs-2026.html" class="hover:text-blue-400">Mineurs 2026</a>
       <a href="plan-acces.html" class="hover:text-blue-400">Plan d'accès</a>
+      <!-- désactivé temporairement ne pas effacer
+	  <a href="membres.html" class="hover:text-blue-400">Membres</a>
+      -->
       <a href="mailto:neuviemelegionforbach@gmail.com" class="hover:text-blue-400">Contact</a>
     </nav>
   </div>
@@ -29,6 +33,7 @@
     <a href="operations.html" class="block hover:text-blue-400">Opérations</a>
     <a href="mineurs-2026.html" class="block hover:text-blue-400">Mineurs 2026</a>
     <a href="plan-acces.html" class="block hover:text-blue-400">Plan d'accès</a>
+    <a href="membres.html" class="block hover:text-blue-400">Membres</a>
     <a href="mailto:neuviemelegionforbach@gmail.com" class="block hover:text-blue-400">Contact</a>
   </div>
 </header>
@@ -37,8 +42,21 @@
   // Activation du menu burger sur mobile
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
-
+  const burgerIcon = document.getElementById('burger-icon');
+  
   toggle.addEventListener('click', () => {
+    // Bascule l'affichage du menu
     menu.classList.toggle('hidden');
+    
+    // Change l'icône du menu burger en "X" quand le menu est ouvert
+    const isExpanded = menu.classList.contains('hidden');
+    toggle.setAttribute('aria-expanded', !isExpanded);
+    
+    // Changement d'icône burger (☰) à croix (✖)
+    if (isExpanded) {
+      burgerIcon.innerHTML = '<path d="M4 6h16M4 12h16M4 18h16" />';
+    } else {
+      burgerIcon.innerHTML = '<path d="M6 18L18 6M6 6l12 12" />';
+    }
   });
 </script>
