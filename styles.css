@@ -373,7 +373,7 @@ a:hover {
 }
 
 main {
-  background-image: url('site/assets/background-camo.jpg'); /* à adapter */
+  background-image: url('assets/background-camo.jpg'); /* à adapter */
   background-size: cover;
   background-blend-mode: multiply;
 }
