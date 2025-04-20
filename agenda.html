@@ -26,46 +26,108 @@
     </nav>
   </div>
 
-  <!-- Titre -->
-  <section class="py-12 text-center">
-    <h1 class="text-4xl font-bold mb-2">📅 Agenda des parties</h1>
-    <p class="text-lg text-slate-300">Une partie tous les 15 jours – prévois ton matos !</p>
+  <section class="py-16 px-6 text-center">
+    <h1 class="text-4xl font-bold mb-4 text-white">📅 Calendrier des Dominicales</h1>
+    <p class="text-lg text-slate-300 max-w-xl mx-auto">Les parties dominicales sont organisées toutes les deux semaines. Prépare ton matos, vérifie tes billes et rejoins les rangs !</p>
   </section>
 
-  <!-- Agenda statique -->
-  <section class="max-w-2xl mx-auto px-4 space-y-6">
-    <!-- Partie 1 -->
-    <div class="bg-slate-800 rounded-xl p-6 shadow-md flex flex-col sm:flex-row justify-between items-center">
-      <div>
-        <p class="text-xl font-semibold">Dimanche 4 mai 2025</p>
-        <span class="inline-block mt-2 bg-green-600 text-white text-sm px-3 py-1 rounded-full">✅ Partie confirmée</span>
-      </div>
-      <a href="https://www.helloasso.com/" target="_blank" class="mt-4 sm:mt-0 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg shadow transition">🔗 Réserver</a>
-    </div>
-
-    <!-- Partie 2 -->
-    <div class="bg-slate-800 rounded-xl p-6 shadow-md flex flex-col sm:flex-row justify-between items-center">
-      <div>
-        <p class="text-xl font-semibold">Dimanche 18 mai 2025</p>
-        <span class="inline-block mt-2 bg-green-600 text-white text-sm px-3 py-1 rounded-full">⏳ Inscriptions ouvertes</span>
-      </div>
-      <a href="https://www.helloasso.com/" target="_blank" class="mt-4 sm:mt-0 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg shadow transition">🔗 Réserver</a>
-    </div>
-
-    <!-- Partie 3 -->
-    <div class="bg-slate-800 rounded-xl p-6 shadow-md flex flex-col sm:flex-row justify-between items-center">
-      <div>
-        <p class="text-xl font-semibold">Dimanche 1er juin 2025</p>
-        <span class="inline-block mt-2 bg-yellow-500 text-white text-sm px-3 py-1 rounded-full">📅 À venir</span>
-      </div>
-      <span class="mt-4 sm:mt-0 bg-gray-600 text-white px-5 py-2 rounded-lg opacity-60 cursor-not-allowed">🔒 Réservations bientôt</span>
-    </div>
+  <section class="max-w-3xl mx-auto px-6 py-8">
+    <ul id="agenda-list" class="space-y-4"></ul>
   </section>
 
-  <!-- Footer -->
-  <footer class="mt-12 py-6 text-center text-sm text-slate-500">
-    &copy; 2025 Neuvième Légion Forbach — Tous droits réservés<br />
-    <a href="/index.html" class="text-blue-400 hover:underline">Retour à l'accueil</a>
+  <footer class="py-6 text-center text-sm text-slate-500">
+    &copy; 2025 Neuvième Légion Forbach — Tous droits réservés.<br />
+    <a class="text-blue-400" href="/index.html">Retour à l'accueil</a>
   </footer>
+
+ <script>
+  async function generateAgenda() {
+    const agendaList = document.getElementById('agenda-list');
+    const today = new Date();
+
+    try {
+      const response = await fetch('/events.json'); // adapte le chemin si besoin
+      const events = await response.json();
+
+      if (events.length === 0) {
+        agendaList.innerHTML = '<p class="text-center text-slate-400">Aucun événement pour le moment. Reste à l’affût !</p>';
+        return;
+      }
+
+      const uniqueDates = new Set();
+
+      events.forEach(event => {
+        if (uniqueDates.has(event.date)) return;
+        uniqueDates.add(event.date);
+
+        const eventDate = new Date(event.date);
+        const isPast = eventDate < today;
+        let statusLabel, buttonClass, buttonText, buttonDisabled = false;
+
+        switch (event.status) {
+          case 'terminée':
+            statusLabel = '<span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm">❌ Partie terminée</span>';
+            buttonClass = 'bg-gray-600 opacity-60 cursor-not-allowed';
+            buttonText = '🔒 Réservations terminées';
+            buttonDisabled = true;
+            break;
+          case 'confirmée':
+            statusLabel = '<span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">✅ Partie confirmée</span>';
+            buttonClass = 'bg-green-600 hover:bg-green-700 hover:scale-105 transition-transform duration-200 text-white';
+            buttonText = '🔗 Réserver sur HelloAsso';
+            break;
+          case 'inscriptions ouvertes':
+            statusLabel = '<span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">⏳ Inscriptions ouvertes</span>';
+            buttonClass = 'bg-green-600 hover:bg-green-700 hover:scale-105 transition-transform duration-200 text-white';
+            buttonText = '🔗 Réserver sur HelloAsso';
+            break;
+          case 'à venir':
+            statusLabel = '<span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">📅 À venir</span>';
+            buttonClass = 'bg-gray-600 text-white opacity-60 cursor-not-allowed';
+            buttonText = '🔒 Réservations bientôt disponibles';
+            buttonDisabled = true;
+            break;
+        }
+
+        const li = document.createElement('li');
+        li.classList.add('bg-slate-800', 'rounded-2xl', 'px-6', 'py-4', 'flex', 'justify-between', 'items-center', 'shadow-md');
+
+        const calendarIcon = `
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+          </svg>
+        `;
+
+        li.innerHTML = `
+          <div class="flex items-center">
+            ${calendarIcon}
+            <span class="text-xl font-semibold">${event.title}</span>
+          </div>
+          ${statusLabel}
+        `;
+
+        const button = document.createElement('a');
+        button.href = !buttonDisabled ? 'https://www.helloasso.com/' : '#';
+        button.className = `inline-block font-semibold py-3 px-6 rounded-xl shadow-lg transition duration-300 ${buttonClass}`;
+        button.innerHTML = buttonText;
+        if (buttonDisabled) {
+          button.setAttribute('aria-disabled', 'true');
+          button.setAttribute('tabindex', '-1');
+        }
+
+        li.appendChild(button);
+        agendaList.appendChild(li);
+      });
+
+    } catch (error) {
+      agendaList.innerHTML = '<p class="text-red-400 text-center">Erreur lors du chargement des événements.</p>';
+      console.error("Erreur de chargement de l'agenda :", error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', generateAgenda);
+</script>
 </body>
 </html>
