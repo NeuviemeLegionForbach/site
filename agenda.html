@@ -14,24 +14,17 @@
   </style>
 </head>
 <body class="font-sans">
-<!-- Chargement du menu -->
-<div id="menu-container"></div>
-<script>
-  fetch('menu.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('menu-container').innerHTML = data;
-
-      // Activation du bouton burger pour le menu mobile
-      const toggle = document.getElementById('menu-toggle');
-      const menu = document.getElementById('mobile-menu');
-      if (toggle && menu) {
-        toggle.addEventListener('click', () => {
-          menu.classList.toggle('hidden');
-        });
-      }
-    });
-</script>
+  <!-- Menu -->
+  <div id="menu-container" class="bg-slate-800 p-4 text-white">
+    <nav class="flex justify-between">
+      <a href="/" class="font-bold text-xl">Neuvième Légion Forbach</a>
+      <ul class="flex space-x-6">
+        <li><a href="/index.html">Accueil</a></li>
+        <li><a href="/agenda.html">Agenda</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 
   <section class="py-16 px-6 text-center">
     <h1 class="text-4xl font-bold mb-4 text-white">📅 Calendrier des Dominicales</h1>
@@ -47,32 +40,30 @@
     <a class="text-blue-400" href="/index.html">Retour à l'accueil</a>
   </footer>
 
-  <script>
-    console.log('Le script JS fonctionne');
-    // Liste des événements avec les informations nécessaires
-    const events = [
-      { date: '2025-04-20', status: 'terminée', title: 'Dimanche 20 avril 2025' },
-      { date: '2025-05-04', status: 'confirmée', title: 'Dimanche 04 mai 2025' },
-      { date: '2025-05-18', status: 'confirmée', title: 'Dimanche 18 mai 2025' },
-      { date: '2025-06-01', status: 'inscriptions ouvertes', title: 'Dimanche 01 juin 2025' },
-      { date: '2025-06-15', status: 'inscriptions ouvertes', title: 'Dimanche 15 juin 2025' },
-      { date: '2025-06-29', status: 'à venir', title: 'Dimanche 29 juin 2025' }
-    ];
+ <script>
+  async function generateAgenda() {
+    const agendaList = document.getElementById('agenda-list');
+    const today = new Date();
 
-    // Fonction pour générer la liste des événements
-    function generateAgenda() {
-      const agendaList = document.getElementById('agenda-list');
-      const today = new Date();
-      
+    try {
+      const response = await fetch('/data/events.json'); // adapte le chemin si besoin
+      const events = await response.json();
+
+      if (events.length === 0) {
+        agendaList.innerHTML = '<p class="text-center text-slate-400">Aucun événement pour le moment. Reste à l’affût !</p>';
+        return;
+      }
+
+      const uniqueDates = new Set();
+
       events.forEach(event => {
+        if (uniqueDates.has(event.date)) return;
+        uniqueDates.add(event.date);
+
         const eventDate = new Date(event.date);
         const isPast = eventDate < today;
-        let statusLabel;
-        let buttonClass;
-        let buttonText;
-        let buttonDisabled = false;
+        let statusLabel, buttonClass, buttonText, buttonDisabled = false;
 
-        // Gestion des statuts
         switch (event.status) {
           case 'terminée':
             statusLabel = '<span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm">❌ Partie terminée</span>';
@@ -98,11 +89,9 @@
             break;
         }
 
-        // Création de l'élément de la liste
         const li = document.createElement('li');
         li.classList.add('bg-slate-800', 'rounded-2xl', 'px-6', 'py-4', 'flex', 'justify-between', 'items-center', 'shadow-md');
 
-        // Icône calendrier à gauche de la date
         const calendarIcon = `
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
@@ -119,20 +108,26 @@
           ${statusLabel}
         `;
 
-        // Ajouter le bouton de réservation
         const button = document.createElement('a');
-        button.href = event.status === 'confirmée' || event.status === 'inscriptions ouvertes' ? 'https://www.helloasso.com/' : '#';
-        button.classList.add('inline-block', 'font-semibold', 'py-3', 'px-6', 'rounded-xl', 'shadow-lg', 'transition', 'duration-300', buttonClass);
+        button.href = !buttonDisabled ? 'https://www.helloasso.com/' : '#';
+        button.className = `inline-block font-semibold py-3 px-6 rounded-xl shadow-lg transition duration-300 ${buttonClass}`;
         button.innerHTML = buttonText;
-        button.disabled = buttonDisabled;
+        if (buttonDisabled) {
+          button.setAttribute('aria-disabled', 'true');
+          button.setAttribute('tabindex', '-1');
+        }
 
         li.appendChild(button);
         agendaList.appendChild(li);
       });
-    }
 
-    // Appeler la fonction pour générer l'agenda une fois le DOM chargé
-    document.addEventListener('DOMContentLoaded', generateAgenda);
-  </script>
+    } catch (error) {
+      agendaList.innerHTML = '<p class="text-red-400 text-center">Erreur lors du chargement des événements.</p>';
+      console.error("Erreur de chargement de l'agenda :", error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', generateAgenda);
+</script>
 </body>
 </html>
