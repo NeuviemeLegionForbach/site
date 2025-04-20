@@ -14,17 +14,24 @@
   </style>
 </head>
 <body class="font-sans">
-  <!-- Menu -->
-  <div id="menu-container" class="bg-slate-800 p-4 text-white">
-    <nav class="flex justify-between">
-      <a href="/" class="font-bold text-xl">Neuvième Légion Forbach</a>
-      <ul class="flex space-x-6">
-        <li><a href="/index.html">Accueil</a></li>
-        <li><a href="/agenda.html">Agenda</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
+<!-- Chargement du menu -->
+<div id="menu-container"></div>
+<script>
+  fetch('menu.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('menu-container').innerHTML = data;
+
+      // Activation du bouton burger pour le menu mobile
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      }
+    });
+</script>
 
   <section class="py-16 px-6 text-center">
     <h1 class="text-4xl font-bold mb-4 text-white">📅 Calendrier des Dominicales</h1>
