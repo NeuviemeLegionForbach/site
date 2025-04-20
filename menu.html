@@ -1,12 +1,16 @@
 <!-- menu.html -->
-<header class="bg-slate-900 text-white">
+<header class="bg-slate-900 text-white relative z-50">
   <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
     <a href="index.html" class="text-xl font-bold text-white">Neuvième Légion</a>
-    <button id="menu-toggle" class="md:hidden focus:outline-none">
-      <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+
+    <!-- Burger menu visible uniquement sur mobile -->
+    <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Ouvrir le menu">
+      <svg class="w-8 h-8 fill-current text-white" viewBox="0 0 24 24">
         <path d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
+
+    <!-- Menu desktop -->
     <nav class="hidden md:flex space-x-6">
       <a href="index.html" class="hover:text-blue-400">Accueil</a>
       <a href="operations.html" class="hover:text-blue-400">Opérations</a>
@@ -15,6 +19,8 @@
       <a href="mailto:neuviemelegionforbach@gmail.com" class="hover:text-blue-400">Contact</a>
     </nav>
   </div>
+
+  <!-- Menu mobile -->
   <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
     <a href="index.html" class="block hover:text-blue-400">Accueil</a>
     <a href="operations.html" class="block hover:text-blue-400">Opérations</a>
