@@ -53,7 +53,7 @@
     const today = new Date();
 
     try {
-      const response = await fetch('/events.json'); // adapte le chemin si besoin
+      const response = await fetch('/site/events.json'); // adapte le chemin si besoin
       const events = await response.json();
 
       if (events.length === 0) {
