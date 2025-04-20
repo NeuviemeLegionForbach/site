@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda des Parties - Neuvième Légion Forbach</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/heroicons@1.0.6/outline/esm/index.js"></script>
+  <style type="text/css">
+    body {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+  </style>
+</head>
+<body class="font-sans">
+<!-- Chargement du menu -->
+<div id="menu-container"></div>
+<script>
+  fetch('menu.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('menu-container').innerHTML = data;
+
+      // Activation du bouton burger pour le menu mobile
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      }
+    });
+</script>
+
+  <section class="py-16 px-6 text-center">
+    <h1 class="text-4xl font-bold mb-4 text-white">📅 Calendrier des Dominicales</h1>
+    <p class="text-lg text-slate-300 max-w-xl mx-auto">Les parties dominicales sont organisées toutes les deux semaines. Prépare ton matos, vérifie tes billes et rejoins les rangs !</p>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 py-8">
+    <ul id="agenda-list" class="space-y-4"></ul>
+  </section>
+
+  <footer class="py-6 text-center text-sm text-slate-500">
+    &copy; 2025 Neuvième Légion Forbach — Tous droits réservés.<br />
+    <a class="text-blue-400" href="/index.html">Retour à l'accueil</a>
+  </footer>
+
+  <script>
+    console.log('Le script JS fonctionne');
+    // Liste des événements avec les informations nécessaires
+    const events = [
+      { date: '2025-04-20', status: 'terminée', title: 'Dimanche 20 avril 2025' },
+      { date: '2025-05-04', status: 'confirmée', title: 'Dimanche 04 mai 2025' },
+      { date: '2025-05-18', status: 'confirmée', title: 'Dimanche 18 mai 2025' },
+      { date: '2025-06-01', status: 'inscriptions ouvertes', title: 'Dimanche 01 juin 2025' },
+      { date: '2025-06-15', status: 'inscriptions ouvertes', title: 'Dimanche 15 juin 2025' },
+      { date: '2025-06-29', status: 'à venir', title: 'Dimanche 29 juin 2025' }
+    ];
+
+    // Fonction pour générer la liste des événements
+    function generateAgenda() {
+      const agendaList = document.getElementById('agenda-list');
+      const today = new Date();
+      
+      events.forEach(event => {
+        const eventDate = new Date(event.date);
+        const isPast = eventDate < today;
+        let statusLabel;
+        let buttonClass;
+        let buttonText;
+        let buttonDisabled = false;
+
+        // Gestion des statuts
+        switch (event.status) {
+          case 'terminée':
+            statusLabel = '<span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm">❌ Partie terminée</span>';
+            buttonClass = 'bg-gray-600 opacity-60 cursor-not-allowed';
+            buttonText = '🔒 Réservations terminées';
+            buttonDisabled = true;
+            break;
+          case 'confirmée':
+            statusLabel = '<span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">✅ Partie confirmée</span>';
+            buttonClass = 'bg-green-600 hover:bg-green-700 hover:scale-105 transition-transform duration-200 text-white';
+            buttonText = '🔗 Réserver sur HelloAsso';
+            break;
+          case 'inscriptions ouvertes':
+            statusLabel = '<span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">⏳ Inscriptions ouvertes</span>';
+            buttonClass = 'bg-green-600 hover:bg-green-700 hover:scale-105 transition-transform duration-200 text-white';
+            buttonText = '🔗 Réserver sur HelloAsso';
+            break;
+          case 'à venir':
+            statusLabel = '<span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">📅 À venir</span>';
+            buttonClass = 'bg-gray-600 text-white opacity-60 cursor-not-allowed';
+            buttonText = '🔒 Réservations bientôt disponibles';
+            buttonDisabled = true;
+            break;
+        }
+
+        // Création de l'élément de la liste
+        const li = document.createElement('li');
+        li.classList.add('bg-slate-800', 'rounded-2xl', 'px-6', 'py-4', 'flex', 'justify-between', 'items-center', 'shadow-md');
+
+        // Icône calendrier à gauche de la date
+        const calendarIcon = `
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+          </svg>
+        `;
+
+        li.innerHTML = `
+          <div class="flex items-center">
+            ${calendarIcon}
+            <span class="text-xl font-semibold">${event.title}</span>
+          </div>
+          ${statusLabel}
+        `;
+
+        // Ajouter le bouton de réservation
+        const button = document.createElement('a');
+        button.href = event.status === 'confirmée' || event.status === 'inscriptions ouvertes' ? 'https://www.helloasso.com/' : '#';
+        button.classList.add('inline-block', 'font-semibold', 'py-3', 'px-6', 'rounded-xl', 'shadow-lg', 'transition', 'duration-300', buttonClass);
+        button.innerHTML = buttonText;
+        button.disabled = buttonDisabled;
+
+        li.appendChild(button);
+        agendaList.appendChild(li);
+      });
+    }
+
+    // Appeler la fonction pour générer l'agenda une fois le DOM chargé
+    document.addEventListener('DOMContentLoaded', generateAgenda);
+  </script>
+</body>
+</html>

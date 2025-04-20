@@ -36,19 +36,37 @@
 </script>
 
   <section class="py-16 px-6 max-w-4xl mx-auto text-center">
-    <h1 class="text-4xl font-bold mb-6">Accueil des Mineurs — Saison 2026</h1>
+    <h1 class="text-4xl font-bold mb-6 text-yellow-500">Accueil des Mineurs — Saison 2026</h1>
     <p class="text-lg mb-4 text-slate-300">
       À partir de 2026, la Neuvième Légion Forbach proposera des sessions spécifiques pour les mineurs, encadrées par des membres de l'association.
     </p>
-    <p class="mb-4">
+    <p class="mb-4 opacity-0 animate-fadeIn">
       Les activités se feront avec des <strong>répliques à orbeez (gel balls)</strong>, adaptées et sécurisées pour un public jeune.
     </p>
     <p class="mb-4">
       Une autorisation parentale sera obligatoire, ainsi que le port de protections oculaires certifiées. L'encadrement sera strict et les règles de sécurité rigoureusement appliquées.
     </p>
+    <p class="mt-6 text-yellow-300">
+  Téléchargez l'<a href="formulaire-autorisations.pdf" class="text-blue-400 underline">autorisation parentale</a> ici.
+</p>
     <p class="mb-4 text-yellow-300">
       Plus d'informations (calendrier, inscription, tarifs) seront communiquées début 2026.
     </p>
+    <p class="mt-4 text-xl text-yellow-300">
+  Le compte à rebours est lancé ! Les inscriptions ouvrent dans <span id="countdown"></span>.
+</p>
+
+<script>
+  // Simple compte à rebours
+  const countdown = document.getElementById('countdown');
+  const targetDate = new Date('2026-01-01T00:00:00');
+  setInterval(() => {
+    const now = new Date();
+    const distance = targetDate - now;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    countdown.textContent = `${days} jours !`;
+  }, 1000);
+</script>
     <p class="mt-6">Pour toute question : <a href="mailto:neuviemelegionforbach@gmail.com" class="text-blue-400 underline">neuviemelegionforbach@gmail.com</a></p>
   </section>
 

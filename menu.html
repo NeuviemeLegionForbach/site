@@ -1,43 +1,23 @@
-<!-- menu.html -->
+<html>
+<head>
+	<title></title>
+</head>
+<body><!-- menu.html -->
 <header class="bg-slate-900 text-white relative z-50">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-    <!-- Logo et lien vers la page d'accueil -->
-    <a href="index.html" class="text-xl font-bold text-white">Neuvième Légion</a>
-
-    <!-- Burger menu visible uniquement sur mobile -->
-    <button id="menu-toggle" class="md:hidden text-3xl text-white focus:outline-none" aria-label="Ouvrir le menu" aria-expanded="false">
-      <!-- SVG pour icône burger, avec texte fallback "☰" -->
-      <span class="sr-only">Ouvrir le menu</span>
-      <svg class="w-8 h-8 fill-current inline-block" viewBox="0 0 24 24" id="burger-icon">
-        <path d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <span class="inline-block md:hidden">☰</span> <!-- Texte alternatif visible si le SVG échoue -->
-    </button>
-
-    <!-- Menu desktop -->
-    <nav class="hidden md:flex space-x-6">
-      <a href="index.html" class="hover:text-blue-400">Accueil</a>
-      <a href="operations.html" class="hover:text-blue-400">Opérations</a>
-      <a href="mineurs-2026.html" class="hover:text-blue-400">Mineurs 2026</a>
-      <a href="plan-acces.html" class="hover:text-blue-400">Plan d'accès</a>
-      <!-- désactivé temporairement ne pas effacer
+<div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between"><!-- Logo et lien vers la page d'accueil --><a class="text-xl font-bold text-white" href="index.html">Neuvi&egrave;me L&eacute;gion</a> <!-- Burger menu visible uniquement sur mobile --><button aria-expanded="false" aria-label="Ouvrir le menu" class="md:hidden text-3xl text-white focus:outline-none" id="menu-toggle"><!-- SVG pour icône burger, avec texte fallback "☰" --><span class="sr-only">Ouvrir le menu</span> <svg class="w-8 h-8 fill-current inline-block" id="burger-icon" viewbox="0 0 24 24"> <path d="M4 6h16M4 12h16M4 18h16"></path> </svg> <span class="inline-block md:hidden">☰</span> <!-- Texte alternatif visible si le SVG échoue --></button> <!-- Menu desktop -->
+<nav class="hidden md:flex space-x-6"><a class="hover:text-blue-400" href="index.html">Accueil</a> <a class="hover:text-blue-400" href="agenda.html">Év&eacute;nements / Agenda</a> <a class="hover:text-blue-400" href="operations.html">Op&eacute;rations</a> <a class="hover:text-blue-400" href="mineurs-2026.html">Mineurs 2026</a> <a class="hover:text-blue-400" href="plan-acces.html">Plan d&#39;acc&egrave;s</a> <a href="rejoindre.html" class="hover:text-blue-400">Rejoindre</a><!-- désactivé temporairement ne pas effacer
 	  <a href="membres.html" class="hover:text-blue-400">Membres</a>
-      -->
-      <a href="mailto:neuviemelegionforbach@gmail.com" class="hover:text-blue-400">Contact</a>
-    </nav>
-  </div>
+      --> <a class="hover:text-blue-400" href="mailto:neuviemelegionforbach@gmail.com">Contact</a></nav>
+</div>
+<!-- Menu mobile -->
 
-  <!-- Menu mobile -->
-  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
-    <a href="index.html" class="block hover:text-blue-400">Accueil</a>
-    <a href="operations.html" class="block hover:text-blue-400">Opérations</a>
-    <a href="mineurs-2026.html" class="block hover:text-blue-400">Mineurs 2026</a>
-    <a href="plan-acces.html" class="block hover:text-blue-400">Plan d'accès</a>
-    <a href="membres.html" class="block hover:text-blue-400">Membres</a>
-    <a href="mailto:neuviemelegionforbach@gmail.com" class="block hover:text-blue-400">Contact</a>
-  </div>
+<div class="md:hidden hidden px-4 pb-4 space-y-2 bg-slate-800/90 border border-slate-600 rounded-lg shadow-md" id="mobile-menu">
+<div class="md:hidden hidden px-4 pb-4 space-y-2 transition-all duration-300 ease-in-out" id="mobile-menu">
+<div class="md:hidden hidden px-4 pb-4 space-y-2" id="mobile-menu"><a class="block hover:text-blue-400" href="index.html">Accueil</a> <a class="block hover:text-blue-400" href="agenda.html">Év&eacute;nements / Agenda</a> <a class="block hover:text-blue-400" href="operations.html">Op&eacute;rations</a> <a class="block hover:text-blue-400" href="mineurs-2026.html">Mineurs 2026</a> <a class="block hover:text-blue-400" href="plan-acces.html">Plan d&#39;acc&egrave;s</a>  <a href="rejoindre.html" class="block text-slate-300 hover:text-white">Rejoindre</a><!-- désactivé temporairement ne pas effacer
+	  <a class="block hover:text-blue-400" href="membres.html">Membres</a>--> <a class="block hover:text-blue-400" href="mailto:neuviemelegionforbach@gmail.com">Contact</a></div>
+</div>
+</div>
 </header>
-
 <script>
   // Activation du menu burger sur mobile
   const toggle = document.getElementById('menu-toggle');
@@ -59,4 +39,13 @@
       burgerIcon.innerHTML = '<path d="M6 18L18 6M6 6l12 12" />';
     }
   });
-</script>
+  window.addEventListener('scroll', function () {
+  const header = document.querySelector('header');
+  if (window.scrollY > 10) {
+    header.classList.add('shadow-lg', 'bg-slate-900/95', 'backdrop-blur-md');
+  } else {
+    header.classList.remove('shadow-lg', 'bg-slate-900/95', 'backdrop-blur-md');
+  }
+});
+</script></body>
+</html>

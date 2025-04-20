@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rejoindre l'association Neuvième Légion Forbach. Infos sur l'adhésion à l'association d'airsoft en Moselle." />
+  <meta name="robots" content="index, follow" />
+  <title>Rejoindre l'association - Neuvième Légion Forbach</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+  </style>
+</head>
+<body class="font-sans">
+<!-- Chargement du menu -->
+<div id="menu-container"></div>
+<script>
+  fetch('menu.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('menu-container').innerHTML = data;
+
+      // Activation du bouton burger pour le menu mobile
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      }
+    });
+</script>
+
+<!-- En-tête -->
+<section class="py-16 px-6 text-center">
+  <h1 class="text-4xl font-bold mb-4 text-white">Rejoindre l'Association</h1>
+  <p class="text-lg text-slate-300">Intègre les rangs de la Neuvième Légion Forbach</p>
+</section>
+
+<!-- Contenu -->
+<section class="px-6 py-12 max-w-3xl mx-auto text-slate-300 space-y-8">
+
+  <div>
+    <h2 class="text-2xl font-bold mb-2">Pourquoi nous rejoindre ?</h2>
+    <ul class="list-disc pl-6 space-y-2">
+      <li>Participer à nos parties régulières dans une ambiance conviviale</li>
+      <li>Bénéficier d’un cadre sécurisé, encadré et respectueux</li>
+      <li>Accès à nos scénarios, événements privés et projets spéciaux</li>
+      <li>Rencontrer une communauté passionnée et engagée</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2 class="text-2xl font-bold mb-2">Cotisation</h2>
+    <p>La cotisation annuelle est de <strong>50 €</strong>. Elle permet de financer l’entretien du terrain, le matériel commun, et l’organisation des événements.</p>
+  </div>
+
+  <div>
+    <h2 class="text-2xl font-bold mb-2">Comment adhérer ?</h2>
+    <p>Tu peux adhérer lors de l’un de nos événements.</p>
+
+    <h2 class="text-2xl font-bold mt-6 mb-2">Conditions d’adhésion</h2>
+    <ul class="list-disc pl-6 space-y-2">
+      <li>Être majeur(e)</li>
+      <li>Remplir une fiche d’adhésion lors d’un événement</li>
+      <li>Régler la cotisation annuelle de 50 €</li>
+      <li>Accepter sans réserve les statuts et le règlement intérieur</li>
+      <li>Le bureau est seul juge de l’intégration du membre</li>
+    </ul>
+
+    <section class="text-center py-12 text-slate-400 italic">
+      Prêt à rejoindre nos rangs ? On t’attend sur le terrain, réplique en main !
+    </section>
+  </div>
+
+  <div>
+    <h2 class="text-2xl font-bold mb-2">Infos utiles</h2>
+    <p>Pour toute question, écris-nous à <a href="mailto:neuviemelegionforbach@gmail.com" class="text-blue-400">neuviemelegionforbach@gmail.com</a>.</p>
+  </div>
+
+</section>
+
+<!-- Pied de page -->
+<footer class="py-6 text-center text-sm text-slate-500">
+  &copy; 2025 Neuvième Légion Forbach — Tous droits réservés. <br>
+  <a href="/mentions-legales.html" class="text-blue-400">Mentions légales</a> • 
+  <a href="/politique-confidentialite.html" class="text-blue-400">Politique de confidentialité</a>
+</footer>
+
+</body>
+</html>
