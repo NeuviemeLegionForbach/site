@@ -371,8 +371,14 @@ a:hover {
 .animate-fade-in {
   animation: fade-in 1s ease-out forwards;
 }
+
+main {
+  background-image: url('assets/background-camo.jpg'); /* à adapter */
+  background-size: cover;
+  background-blend-mode: multiply;
+}
 .event-card {
-  background-image: url('/assets/background-camo.jpg');
+  background-image: url('assets/background-camo.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -1,92 +1,107 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Rejoindre l'association Neuvième Légion Forbach. Infos sur l'adhésion à l'association d'airsoft en Moselle." /><meta name="robots" content="index, follow" />
-	<title>Rejoindre l&#39;association - Neuvi&egrave;me L&eacute;gion Forbach</title>
-	<script src="https://cdn.tailwindcss.com"></script>
-	<style type="text/css">body {
-      background-color: #0f172a;
-      color: #f1f5f9;
-    }
-	</style>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Rejoindre l'association Neuvième Légion Forbach. Infos sur l'adhésion à l'association d'airsoft en Moselle." />
+    <meta name="robots" content="index, follow" />
+    <title>Rejoindre l'Association - Neuvième Légion Forbach</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/css">
+        body {
+            background-color: #0f172a;
+            color: #f1f5f9;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
 </head>
-<body class="font-sans"><!-- Chargement du menu -->
+<body class="font-sans">
+
+<!-- Chargement du menu -->
 <div id="menu-container">&nbsp;</div>
 <script>
-  fetch('menu.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('menu-container').innerHTML = data;
+    fetch('menu.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('menu-container').innerHTML = data;
 
-      // Activation du bouton burger pour le menu mobile
-      const toggle = document.getElementById('menu-toggle');
-      const menu = document.getElementById('mobile-menu');
-      if (toggle && menu) {
-        toggle.addEventListener('click', () => {
-          menu.classList.toggle('hidden');
+            // Activation du bouton burger pour le menu mobile
+            const toggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            if (toggle && menu) {
+                toggle.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            }
         });
-      }
-    });
-</script><!-- En-tête -->
+</script>
 
+<!-- En-tête -->
 <section class="py-16 px-6 text-center">
-<h1 class="text-4xl font-bold mb-4 text-white">Rejoindre l&#39;Association</h1>
-
-<p class="text-lg text-slate-300">Int&egrave;gre les rangs de la Neuvi&egrave;me L&eacute;gion Forbach</p>
+    <h1 class="text-4xl font-bold mb-4 text-white">Rejoindre l'Association</h1>
+    <p class="text-lg text-slate-300">Intègre les rangs de la Neuvième Légion Forbach</p>
 </section>
-<!-- Contenu -->
 
-<section class="px-6 py-12 max-w-3xl mx-auto text-slate-300 space-y-8">
+<!-- Contenu -->
+<section class="px-6 py-12 max-w-4xl mx-auto text-slate-300 space-y-8">
 
     <!-- Section Rejoindre -->
-  <section class="py-16 px-6 text-center">
-    <h1 class="text-4xl font-bold mb-4">Rejoindre la Neuvième Légion</h1>
-    <p class="text-lg text-slate-300 max-w-xl mx-auto mb-6">
-      Vous êtes passionné par l'airsoft et souhaitez rejoindre une équipe dynamique ? La Neuvième Légion Forbach vous attend !
-    </p>
+    <section class="text-center py-16">
+        <h2 class="text-3xl font-bold mb-4 text-white">Pourquoi nous rejoindre ?</h2>
+        <p class="text-lg max-w-xl mx-auto mb-6">Vous êtes passionné par l'airsoft et souhaitez rejoindre une équipe dynamique ? La Neuvième Légion Forbach vous attend !</p>
+        
+        <div class="bg-slate-800 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
+            <ul class="space-y-3 text-left text-slate-300 text-xl">
+                <li>🔥 Participation à des événements exclusifs</li>
+                <li>💪 Participer à nos parties régulières dans une ambiance conviviale</li>
+                <li>🤝 Rejoindre une communauté passionnée et soudée</li>
+                <li>🎯 Accès à nos scénarios, événements privés et projets spéciaux</li>
+            </ul>
+        </div>
+    </section>
 
-    <div class="bg-slate-800 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Pourquoi nous rejoindre ?</h2>
-      <ul class="space-y-3 text-left text-slate-300">
-        <li>🔥 Participation à des événements exclusifs</li>
-        <li>💪 Participer &agrave; nos parties r&eacute;guli&egrave;res dans une ambiance conviviale</li>
-        <li>🤝 Rejoindre une communauté passionnée et soudée</li>
-        <li>🎯 Acc&egrave;s &agrave; nos sc&eacute;narios, &eacute;v&eacute;nements priv&eacute;s et projets sp&eacute;ciaux</li>
-      </ul>
-    </div>
+    <!-- Cotisation -->
+    <section class="text-left py-6">
+        <h2 class="text-2xl font-bold mb-4">Cotisation</h2>
+        <p>La cotisation annuelle est de <strong>50 €</strong>. Elle permet de financer l’entretien du terrain, le matériel commun, et l’organisation des événements.</p>
+    </section>
 
-<div>
-<h2 class="text-2xl font-bold mb-2">Cotisation</h2>
+    <!-- Comment adhérer -->
+    <section class="text-left py-6">
+        <h2 class="text-2xl font-bold mb-4">Comment adhérer ?</h2>
+        <p>Tu peux adhérer lors de l’un de nos événements.</p>
+    </section>
 
-<p>La cotisation annuelle est de <strong>50 &euro;</strong>. Elle permet de financer l&rsquo;entretien du terrain, le mat&eacute;riel commun, et l&rsquo;organisation des &eacute;v&eacute;nements.</p>
-</div>
+    <!-- Conditions d'adhésion -->
+    <section class="text-left py-6">
+        <h2 class="text-2xl font-bold mb-4">Conditions d’adhésion</h2>
+        <ul class="list-disc pl-6 space-y-2">
+            <li>Être majeur(e)</li>
+            <li>Remplir une fiche d’adhésion lors d’un événement</li>
+            <li>Régler la cotisation annuelle de 50 €</li>
+            <li>Accepter sans réserve les statuts et le règlement intérieur</li>
+            <li>Le bureau est seul juge de l’intégration du membre</li>
+        </ul>
+    </section>
 
-<div>
-<h2 class="text-2xl font-bold mb-2">Comment adh&eacute;rer ?</h2>
+    <!-- Section appel à l'action -->
+    <section class="text-center py-12 text-slate-400 italic">
+        Prêt à rejoindre nos rangs ? On t’attend sur le terrain, réplique en main !
+    </section>
 
-<p>Tu peux adh&eacute;rer lors de l&rsquo;un de nos &eacute;v&eacute;nements.</p>
-
-<h2 class="text-2xl font-bold mt-6 mb-2">Conditions d&rsquo;adh&eacute;sion</h2>
-
-<ul class="list-disc pl-6 space-y-2">
-	<li>&Ecirc;tre majeur(e)</li>
-	<li>Remplir une fiche d&rsquo;adh&eacute;sion lors d&rsquo;un &eacute;v&eacute;nement</li>
-	<li>R&eacute;gler la cotisation annuelle de 50 &euro;</li>
-	<li>Accepter sans r&eacute;serve les statuts et le r&egrave;glement int&eacute;rieur</li>
-	<li>Le bureau est seul juge de l&rsquo;int&eacute;gration du membre</li>
-</ul>
-
-<section class="text-center py-12 text-slate-400 italic">Pr&ecirc;t &agrave; rejoindre nos rangs ? On t&rsquo;attend sur le terrain, r&eacute;plique en main !</section>
-</div>
-
-<div>
-<h2 class="text-2xl font-bold mb-2">Infos utiles</h2>
-
-<p>Pour toute question, &eacute;cris-nous &agrave; <a class="text-blue-400" href="mailto:neuviemelegionforbach@gmail.com">neuviemelegionforbach@gmail.com</a>.</p>
-</div>
+    <!-- Infos utiles -->
+    <section class="text-left py-6">
+        <h2 class="text-2xl font-bold mb-4">Infos utiles</h2>
+        <p>Pour toute question, écris-nous à <a class="text-blue-400" href="mailto:neuviemelegionforbach@gmail.com">neuviemelegionforbach@gmail.com</a>.</p>
+    </section>
 </section>
-<!-- Pied de page -->
 
-<footer class="py-6 text-center text-sm text-slate-500">&copy; 2025 Neuvi&egrave;me L&eacute;gion Forbach &mdash; Tous droits r&eacute;serv&eacute;s.<br />
-<a class="text-blue-400" href="/mentions-legales.html">Mentions l&eacute;gales</a> &bull; <a class="text-blue-400" href="/politique-confidentialite.html">Politique de confidentialit&eacute;</a></footer>
+<!-- Pied de page -->
+<footer class="py-6 text-center text-sm text-slate-500">
+    &copy; 2025 Neuvième Légion Forbach — Tous droits réservés.<br />
+    <a class="text-blue-400" href="/mentions-legales.html">Mentions légales</a> &bull; 
+    <a class="text-blue-400" href="/politique-confidentialite.html">Politique de confidentialité</a>
+</footer>
+
 </body>
 </html>

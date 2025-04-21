@@ -7,9 +7,29 @@
       background-color: #0f172a;
       color: #f1f5f9;
     }
-    h1, h2 {
-      font-family: 'Road Rage', sans-serif;
-    }
+      .operation-card {
+  background-image: url('/background-camo.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  color: #f1f5f9;
+}
+
+.operation-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.75); /* voile sombre */
+  backdrop-filter: brightness(0.9);
+  z-index: 0;
+}
+
+.operation-card > * {
+  position: relative;
+  z-index: 1;
+}
 	</style>
 </head>
 <body class="font-sans"><!-- Chargement du menu -->
@@ -38,16 +58,15 @@
 </header>
 
 <main class="py-12 px-6 max-w-4xl mx-auto">
-  <h2 class="text-3xl font-bold mb-6 text-center">Événements à venir</h2>
-  <div id="evenements-container" class="space-y-8 text-slate-300"></div>
-  <div class="text-center mt-12">
-    <a class="text-blue-400 hover:text-blue-500" href="index.html">&larr; Retour à l'accueil</a>
-  </div>
+<h2 class="text-3xl font-bold mb-6 text-center">&Eacute;v&eacute;nements &agrave; venir</h2>
+
+<div class="space-y-8 text-slate-300" id="evenements-container">&nbsp;</div>
+
+<div class="text-center mt-12"><a class="text-blue-400 hover:text-blue-500" href="index.html">&larr; Retour &agrave; l&#39;accueil</a></div>
 </main>
 
 <footer class="py-6 text-center text-sm text-slate-500">&copy; 2025 Neuvi&egrave;me L&eacute;gion Forbach &mdash; <a class="text-blue-400" href="mentions-legales.html">Mentions l&eacute;gales</a> | <a class="text-blue-400" href="politique-confidentialite.html">Politique de confidentialit&eacute;</a></footer>
-<script src="evenements.js"></script>
-<script>
+<script src="evenements.js"></script><script>
   const container = document.getElementById('evenements-container');
 
   evenements.forEach(evt => {
@@ -56,7 +75,7 @@
 
     card.innerHTML = `
       <h3 class="text-2xl font-bold mb-2">${evt.titre}</h3>
-      <p><strong>Date :</strong> <span class="text-yellow-400 italic">${evt.date}</span></p>
+      <p><strong>Date :</strong> <span class="text-yellow-400 italic animate-pulse">${evt.date}</span></p>
       <p class="mt-2"><strong>Description :</strong> ${evt.description}</p>
       ${
         evt.inscription
@@ -67,6 +86,5 @@
 
     container.appendChild(card);
   });
-</script>
-</body>
+</script></body>
 </html>
